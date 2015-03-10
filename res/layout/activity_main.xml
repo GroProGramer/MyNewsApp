@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.WYJ.mynewsapp.MainActivity"
+    tools:ignore="MergeRootFrame" >
+    <LinearLayout
+        android:id="@+id/main_linear1"
+        android:layout_width="fill_parent"
+        android:layout_height="42sp"
+        android:layout_alignParentTop="true"
+        android:background="#EA524A"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/news_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/main"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+        <ListView
+            android:id="@+id/main_listview"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:divider="#00000000"
+            android:dividerHeight="2dp"
+            android:layout_below="@+id/main_linear1">"
+            
+        </ListView>
+    
+</RelativeLayout>    
+
