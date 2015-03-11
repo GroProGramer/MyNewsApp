@@ -6,16 +6,20 @@ import com.WYJ.util.GetNewsListService;
 import com.WYJ.util.DBNewsListManage;
 import com.WYJ.adapter.MainListViewAdapter;
 import com.WYJ.domain.News;
+import com.nineoldandroids.view.ViewHelper;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,16 +35,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			//退出
-			dialog();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
+	private DrawerLayout mDrawerLayout;
+	
 
 
 	private ListView listView;
@@ -56,7 +52,9 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-		listView = (ListView)findViewById(R.id.main_listview);
+		initView();
+		initEvents();
+		
 		newss = new DBNewsListManage().getNewss(this);//从数据库获取新闻列表
 		adapter = new MainListViewAdapter(newss, this);
 		listView.addFooterView(View.inflate(this, R.layout.foot, null));
@@ -166,4 +164,90 @@ public class MainActivity extends ActionBarActivity {
 
 		  builder.create().show();
 		 } 
+	
+	public void OpenRightMenu(View view)
+	{
+		mDrawerLayout.openDrawer(Gravity.RIGHT);
+		mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED,
+				Gravity.RIGHT);
+	}
+	private void initView()
+	{
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawerLayout);
+		//mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED,
+				//Gravity.RIGHT);
+		listView = (ListView)findViewById(R.id.main_listview);
+	}
+	private void initEvents()
+	{
+		mDrawerLayout.setDrawerListener(new DrawerListener()
+		{
+			@Override
+			public void onDrawerStateChanged(int newState)
+			{
+			}
+
+			@Override
+			public void onDrawerSlide(View drawerView, float slideOffset)
+			{
+				View mContent = mDrawerLayout.getChildAt(0);
+				View mMenu = drawerView;
+				float scale = 1 - slideOffset;
+				float rightScale = 0.8f + scale * 0.2f;
+
+				if (drawerView.getTag().equals("LEFT"))
+				{
+
+					float leftScale = 1 - 0.3f * scale;
+
+					ViewHelper.setScaleX(mMenu, leftScale);
+					ViewHelper.setScaleY(mMenu, leftScale);
+					ViewHelper.setAlpha(mMenu, 0.6f + 0.4f * (1 - scale));
+					ViewHelper.setTranslationX(mContent,
+							mMenu.getMeasuredWidth() * (1 - scale));
+					ViewHelper.setPivotX(mContent, 0);
+					ViewHelper.setPivotY(mContent,
+							mContent.getMeasuredHeight() / 2);
+					mContent.invalidate();
+					ViewHelper.setScaleX(mContent, rightScale);
+					ViewHelper.setScaleY(mContent, rightScale);
+				} else
+				{
+					ViewHelper.setTranslationX(mContent,
+							-mMenu.getMeasuredWidth() * slideOffset);
+					ViewHelper.setPivotX(mContent, mContent.getMeasuredWidth());
+					ViewHelper.setPivotY(mContent,
+							mContent.getMeasuredHeight() / 2);
+					mContent.invalidate();
+					ViewHelper.setScaleX(mContent, rightScale);
+					ViewHelper.setScaleY(mContent, rightScale);
+				}
+
+			}
+
+			@Override
+			public void onDrawerOpened(View drawerView)
+			{
+			}
+
+			@Override
+			public void onDrawerClosed(View drawerView)
+			{
+				//mDrawerLayout.setDrawerLockMode(
+						//DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
+			}
+		});
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			//退出
+			dialog();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
 }
