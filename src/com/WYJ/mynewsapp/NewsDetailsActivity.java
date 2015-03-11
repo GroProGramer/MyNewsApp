@@ -1,31 +1,30 @@
 package com.WYJ.mynewsapp;
 
+import com.WYJ.animation.MyAnimation;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.WebSettings.LayoutAlgorithm;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.os.Build;
 
 public class NewsDetailsActivity extends ActionBarActivity {
 	private WebView webView;
@@ -70,6 +69,14 @@ public class NewsDetailsActivity extends ActionBarActivity {
 			}
 			
 		});
+		WindowManager windowManager = (WindowManager)
+				getSystemService(WINDOW_SERVICE);
+		Display display = windowManager.getDefaultDisplay();
+		DisplayMetrics metrice = new DisplayMetrics();
+		// 获取屏幕的宽和高
+		display.getMetrics(metrice);
+		webView.setAnimation(new MyAnimation(metrice.xdpi / 2
+				, metrice.ydpi / 2, 3500));
 	}
 
 	@Override
