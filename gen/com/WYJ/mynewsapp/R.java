@@ -15,6 +15,9 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
+        public static final int dialog_exit_fade_out=0x7f040006;
+        public static final int dialog_exit_slide_left=0x7f040007;
+        public static final int dialog_exit_slide_up=0x7f040008;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1088,21 +1091,22 @@ containing a value of this type.
         public static final int dianhua=0x7f02005f;
         public static final int discuss=0x7f020060;
         public static final int ic_launcher=0x7f020061;
-        public static final int img_1=0x7f020062;
-        public static final int img_2=0x7f020063;
-        public static final int img_3=0x7f020064;
-        public static final int img_4=0x7f020065;
-        public static final int img_5=0x7f020066;
-        public static final int img_frame_background=0x7f020067;
-        public static final int img_temp=0x7f020068;
-        public static final int mobile=0x7f020069;
-        public static final int qq=0x7f02006a;
-        public static final int saoma=0x7f02006b;
-        public static final int saoyisao=0x7f02006c;
-        public static final int select_btn_back=0x7f02006d;
-        public static final int shape_news_list_back_normal=0x7f02006e;
-        public static final int wode=0x7f02006f;
-        public static final int youce=0x7f020070;
+        public static final int image_splash_background=0x7f020062;
+        public static final int img_1=0x7f020063;
+        public static final int img_2=0x7f020064;
+        public static final int img_3=0x7f020065;
+        public static final int img_4=0x7f020066;
+        public static final int img_5=0x7f020067;
+        public static final int img_frame_background=0x7f020068;
+        public static final int img_temp=0x7f020069;
+        public static final int mobile=0x7f02006a;
+        public static final int qq=0x7f02006b;
+        public static final int saoma=0x7f02006c;
+        public static final int saoyisao=0x7f02006d;
+        public static final int select_btn_back=0x7f02006e;
+        public static final int shape_news_list_back_normal=0x7f02006f;
+        public static final int wode=0x7f020070;
+        public static final int youce=0x7f020071;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1331,7 +1335,7 @@ containing a value of this type.
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0b008c;
+        public static final int AppTheme=0x7f0b008f;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;
@@ -1534,6 +1538,9 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0b000a;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0b0009;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0b0022;
+        public static final int dialog_anim_fade_out=0x7f0b008e;
+        public static final int dialog_anim_slide_left=0x7f0b008c;
+        public static final int dialog_anim_slide_up=0x7f0b008d;
     }
     public static final class styleable {
         /**  ============================================ 

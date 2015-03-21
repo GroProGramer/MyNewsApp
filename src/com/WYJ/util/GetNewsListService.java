@@ -18,7 +18,7 @@ public class GetNewsListService {
 		System.out.println("");
 		List<News> newss = new ArrayList<News>();
 		try {
-			String response = NetUtil.postAndGetDaet("http://m.baidu.com/news?tn=bdapisearch&word=¹ã¶«¹¤Òµ´óÑ§&pn="+page*20+"&rn=20&t=1386838893136");
+			String response = NetUtil.postAndGetDaet("http://m.baidu.com/news?tn=bdapisearch&word=å¹¿å·¥&pn="+page*20+"&rn=20&t=1386838893136");
 			System.out.println(response);
 			//Log.i("NetUtil","response="+response);
 			JSONArray jsonArray = new JSONArray(response);
@@ -33,8 +33,8 @@ public class GetNewsListService {
 				Log.i("NetUtil","imgUrl="+jsonObject.getString("imgUrl"));
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 				news.setDate(dateFormat.format(new Date(jsonObject.getLong("sortTime")*1000)));
-				//´Ë´¦¿ÉÄÜ°üº¬ÀÍ¶÷Ë¹¿áÅÉµÄÐÂÎÅ£¨È¥µô£©
-				if(!news.getTitle().contains("ÀÍ¶÷Ë¹")){
+				//ï¿½Ë´ï¿½ï¿½ï¿½ï¿½Ü°ï¿½ï¿½Í¶ï¿½Ë¹ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½Å£ï¿½È¥ï¿½ï¿½ï¿½ï¿½
+				if(!news.getTitle().contains("ï¿½Í¶ï¿½Ë¹")){
 			    	newss.add(news);
 				}
 			}
