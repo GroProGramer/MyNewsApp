@@ -7,8 +7,22 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
-      <uses-permission android:name="android.permission.INTERNET" >
+
+    <uses-permission android:name="android.permission.INTERNET" >
+     
     </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 百度定位需要的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,6 +40,14 @@
         <activity
             android:name="com.WYJ.mynewsapp.NewsDetailsActivity"
             android:label="@string/title_activity_news_details" >
+        </activity>
+        <activity
+            android:name="com.WYJ.mynewsapp.Weather"
+            android:label="@string/title_activity_weather" >
+        </activity>
+        <activity
+            android:name="com.WYJ.mynewsapp.SelectCity"
+            android:label="@string/title_activity_select_city" >
         </activity>
     </application>
 

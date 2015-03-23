@@ -24,12 +24,13 @@
                 android:src="@drawable/img_1" />
 
             <TextView
+                android:id="@+id/serchweather"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@id/one"
-                android:text="第1个Item"
+                android:text="天气"
                 android:textColor="#f0f0f0"
                 android:textSize="20sp" />
         </RelativeLayout>
